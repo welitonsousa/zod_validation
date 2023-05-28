@@ -45,5 +45,48 @@ void main() {
       );
       expect(res.result['user'], TypeMatcher<String>());
     });
+    test('check option with phone -> null value', () {
+      final res = Zod.validate(
+        params: {'phone': Zod().optional().phone()},
+        data: {'phone': null},
+      );
+      expect(res.isValid, true);
+    });
+    test('check option with phone -> invalid phone', () {
+      final res = Zod.validate(
+        params: {'phone': Zod().optional().phone()},
+        data: {'phone': '123'},
+      );
+      expect(res.isValid, false);
+    });
+    test('check option with phone -> valid phone', () {
+      final res = Zod.validate(
+        params: {'phone': Zod().optional().phone()},
+        data: {'phone': '89988187280'},
+      );
+      expect(res.isValid, true);
+    });
+    test('check custom validation -> valid param', () {
+      final res = Zod.validate(
+        params: {
+          'platform': Zod().type<String>().custom((v) {
+            return (v == 'web' || v == 'mobile');
+          })
+        },
+        data: {'platform': 'web'},
+      );
+      expect(res.isValid, true);
+    });
+    test('check custom validation -> invalid param', () {
+      final res = Zod.validate(
+        params: {
+          'platform': Zod().type<String>().custom((v) {
+            return (v == 'web' || v == 'mobile');
+          })
+        },
+        data: {'platform': 'desktop'},
+      );
+      expect(res.isValid, false);
+    });
   });
 }

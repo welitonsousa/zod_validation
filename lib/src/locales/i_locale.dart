@@ -22,6 +22,7 @@ abstract class ILocaleZod {
   String get isDate;
   String get cpfCnpj;
   String get password;
+  String get custom;
   String min(int v);
   String max(int v);
   String type<T>();

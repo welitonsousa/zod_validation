@@ -141,6 +141,21 @@ class Zod {
     });
   }
 
+  Zod optional({bool isValidWhenEmpty = true}) {
+    return _add((v) {
+      if (v == null) return 'opt';
+      if (isValidWhenEmpty && v is String && v.isEmpty) return 'opt';
+      return null;
+    });
+  }
+
+  Zod custom(bool Function(dynamic) validate, {String? errorMessage}) {
+    return _add((v) {
+      if (validate(v)) return null;
+      return errorMessage ?? _zod.custom;
+    });
+  }
+
   Zod _add(CallBack validator) {
     _validations.add(validator);
     return this;
@@ -149,7 +164,10 @@ class Zod {
   String? build(dynamic value) {
     for (var validate in _validations) {
       final result = validate(value);
-      if (result != null) return result;
+      if (result != null) {
+        if (result == 'opt') return null;
+        return result;
+      }
     }
     return null;
   }
@@ -205,11 +223,7 @@ class Zod {
           data: data[key] ?? {},
           params: value as Map<String, dynamic>,
         );
-
-        errors.addAll({key: res});
-        // res.forEach((resKey, value) {
-        //   errors.addAll({'$key.$resKey': value});
-        // });
+        if (res.isNotEmpty) errors.addAll({key: res});
       }
     });
     return errors;

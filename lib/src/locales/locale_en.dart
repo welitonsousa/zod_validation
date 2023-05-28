@@ -40,4 +40,7 @@ class LocaleEN implements ILocaleZod {
 
   @override
   String get password => 'Invalid password';
+
+  @override
+  String get custom => 'Invalid value';
 }

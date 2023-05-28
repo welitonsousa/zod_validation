@@ -40,4 +40,7 @@ class LocaleBR implements ILocaleZod {
 
   @override
   String get password => 'Senha inválida';
+
+  @override
+  String get custom => 'Valor inválido';
 }

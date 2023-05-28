@@ -76,5 +76,5 @@ Zod(localeZod: MyLocale()).required().build
 
 <br>
 <p align="center">
-   Feito com ❤️ by <a target="_blank" href="https://welitonsousa.github.io"><b>Weliton Sousa</b></a>
+   Feito com ❤️ by <a target="_blank" href="https://welitonsousa.shop"><b>Weliton Sousa</b></a>
 </p>
