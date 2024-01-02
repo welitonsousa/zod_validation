@@ -88,16 +88,16 @@ class Zod {
 
   /// verify emails validate separated by comma
   /// example: email1@gmail,com,email2@gmail,com
-  Zod isEmails(String? emails, [String? message]) {
+  Zod isEmails([String? message]) {
     return _add((v) {
       return Validations.required(v) ? null : message ?? _zod.required;
     });
   }
 
   /// verify equals validate
-  Zod equals(value, value2, [String? message]) {
+  Zod equals(value, [String? message]) {
     return _add((v) {
-      return Validations.required(v) ? null : message ?? _zod.required;
+      return Validations.equals(value, v) ? null : message ?? _zod.required;
     });
   }
 
