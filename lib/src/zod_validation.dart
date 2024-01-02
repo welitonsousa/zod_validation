@@ -90,14 +90,14 @@ class Zod {
   /// example: email1@gmail,com,email2@gmail,com
   Zod isEmails([String? message]) {
     return _add((v) {
-      return Validations.required(v) ? null : message ?? _zod.required;
+      return Validations.required(v) ? null : message ?? _zod.emails;
     });
   }
 
   /// verify equals validate
   Zod equals(value, [String? message]) {
     return _add((v) {
-      return Validations.equals(value, v) ? null : message ?? _zod.required;
+      return Validations.equals(value, v) ? null : message ?? _zod.equals;
     });
   }
 

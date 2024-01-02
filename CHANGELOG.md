@@ -1,7 +1,12 @@
-## 1.0.3
+## 1.0.4
 
 - Add email list validation
 - Add equals validation.
+
+
+## 1.0.3
+
+- Bug corrections.
 
 
 ## 1.0.2

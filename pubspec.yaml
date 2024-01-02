@@ -1,6 +1,6 @@
 name: zod_validation
 description: This is a package for validating data.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/welitonsousa/zod_validation
 repository: https://github.com/welitonsousa/zod_validation
 issue_tracker: https://github.com/welitonsousa/zod_validation/issues
