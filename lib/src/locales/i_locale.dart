@@ -14,6 +14,8 @@
 ///
 abstract class ILocaleZod {
   String get email;
+  String get emails;
+  String get equals;
   String get phone;
   String get required;
   String get isMoney;

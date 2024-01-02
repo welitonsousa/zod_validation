@@ -7,6 +7,18 @@ class Validations {
         .hasMatch(email?.trim() ?? '');
   }
 
+  /// verify emails validate separated by comma
+  /// example: email1@gmail,com,email2@gmail,com
+  static bool isEmails(String? emails) {
+    final list = emails?.split(',') ?? [];
+    return list.every((e) => isEmail(e));
+  }
+
+  /// verify equals validate
+  static bool equals(value, value2) {
+    return value == value2;
+  }
+
   /// verify phone validate
   static bool isPhone(String? phone) {
     final number = (phone ?? "").replaceAll(RegExp(r'[^0-9]'), '');

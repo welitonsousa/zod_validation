@@ -5,8 +5,27 @@
 ### Usage with Flutter
 ```dart
 TextFormField(
-  validator: Zod().required().build,
+  validator: Zod().required().min(3).email().build,
 )
+```
+
+
+### All Validations
+```dart
+password
+email
+isEmails
+min
+max
+equals
+type<T>
+required
+cpf
+cpnj
+cpfCnpj
+isDate
+optional
+custom
 ```
 
 <hr>

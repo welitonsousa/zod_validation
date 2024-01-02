@@ -9,6 +9,12 @@ class LocaleBR implements ILocaleZod {
   String get email => 'Email inválido';
 
   @override
+  String get emails => 'Emails inválidos';
+
+  @override
+  String get equals => 'Valores diferentes';
+
+  @override
   String get phone => 'Número de telefone inválido';
 
   @override

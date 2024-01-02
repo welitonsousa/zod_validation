@@ -9,6 +9,12 @@ class LocaleEN implements ILocaleZod {
   String get email => 'Invalid email';
 
   @override
+  String get emails => 'Invalid emails';
+
+  @override
+  String get equals => 'Different value';
+
+  @override
   String get phone => 'Invalid phone number';
 
   @override
