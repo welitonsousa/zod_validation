@@ -1,7 +1,8 @@
-import 'package:zod_validation/src/locales/enum_locale.dart';
 import 'package:zod_validation/src/locales/i_locale.dart';
 import 'package:zod_validation/src/models/validade_model.dart';
 import 'package:zod_validation/src/validations.dart';
+
+import 'locales/locale_br.dart';
 export 'package:zod_validation/src/locales/enum_locale.dart';
 
 /// type of return of the validation
@@ -12,7 +13,7 @@ typedef CallBack = String? Function(dynamic value);
 /// and returning the error message
 class Zod {
   /// this is the default locale
-  static Locale zodLocaleInstance = Locale.pt_BR;
+  static ILocaleZod zodLocaleInstance = LocaleBR();
 
   /// parameter responsible for receiving the locale
   ///
@@ -21,16 +22,12 @@ class Zod {
   /// ```
   final ILocaleZod? localeZod;
 
-  /// parameter responsible for receiving the locale enum
-  final Locale? localeEnum;
-
   /// list of validations
   final List<CallBack> _validations = [];
 
-  ILocaleZod get _zod =>
-      localeZod ?? localeEnum?.localeZod ?? zodLocaleInstance.localeZod;
+  ILocaleZod get _zod => localeZod ?? zodLocaleInstance;
 
-  Zod({this.localeEnum, this.localeZod});
+  Zod({this.localeZod});
 
   /// this method is responsible for email validation
   Zod email([String? message]) {

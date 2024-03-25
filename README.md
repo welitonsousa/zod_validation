@@ -75,11 +75,11 @@ Future<Response> register (Request req) async {
 
 ### How change locale
 ```dart
-Zod(localeEnum: Locale.pt_BR).required().build,
+Zod(localeZod: LocaleEN()).required().build,
 
 // or
 
-Zod.zodLocaleInstance = Locale.pt_BR // apply in all system
+Zod.zodLocaleInstance = LocaleEN() // apply in all system
 ```
 
 

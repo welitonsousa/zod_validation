@@ -1,3 +1,8 @@
+## 1.0.5
+
+- implement your ILocaleZod class globally in the application
+
+
 ## 1.0.4
 
 - Add email list validation

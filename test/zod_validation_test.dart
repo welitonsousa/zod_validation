@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:zod_validation/src/locales/locale_en.dart';
 import 'package:zod_validation/src/zod_validation.dart';
 
 void main() {
@@ -13,7 +14,7 @@ void main() {
 
     test('check invalid param - locale en-us', () {
       final res = Zod.validate(
-        params: {'user': Zod(localeEnum: Locale.en_US).required()},
+        params: {'user': Zod(localeZod: LocaleEN()).required()},
         data: {},
       );
       expect(res.result['user'], 'Required field');
